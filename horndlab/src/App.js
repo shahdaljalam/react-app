@@ -15,7 +15,7 @@ export class App extends Component {
       show: false,
       selectedProps: {}
     }
-  }; 
+  };
 
   handleModal = (title, img, desc) => {
     this.setState({
