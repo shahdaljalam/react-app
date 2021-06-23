@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
-import Card from 'react-bootstrap/Card'
+// import Card from 'react-bootstrap/Card'
 
 export class SelectedBeast extends Component {
+    // eslint-disable-next-line no-useless-constructor
+    constructor(props) {
+        super(props);
+
+    }
     render() {
         return (
             <div>
@@ -15,20 +20,16 @@ export class SelectedBeast extends Component {
                     </Modal.Header>
 
                     <Modal.Body>
-                        <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={this.props.img} alt={this.props.title} />
-                            <Card.Body>
-                                <Card.Title>{this.props.title}</Card.Title>
-                                <Card.Text>
-                                    {this.props.desc}
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
+
+                        <img variant="top" src={this.props.img} alt='' style={{ width: "100%" }} />
+                        <p> {this.props.description} </p>
+
                     </Modal.Body>
 
                     <Modal.Footer>
                         <Button variant="secondary" onClick={this.handleModal} >Close</Button>
                     </Modal.Footer>
+     
 
                 </Modal>
 
@@ -38,3 +39,4 @@ export class SelectedBeast extends Component {
 }
 
 export default SelectedBeast
+

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+// import Button from 'react-bootstrap/Button'
 
 
 export class HornedBeast extends Component {
@@ -12,9 +12,11 @@ export class HornedBeast extends Component {
     }
 
     vote = () => {
+        let icre = this.state.count;
         this.setState({
-            count: this.state.count + 1
+            count: icre += 1,
         })
+
     }
 
     render() {
@@ -28,19 +30,21 @@ export class HornedBeast extends Component {
             //     </div>
             // </div>
             <div>
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" onClick={() => {
-                        this.vote();
-                        this.props.handleModal(this.props);
-                    }} src={this.props.img} alt={this.props.title} />
-                        <Card.Body>
-                        <Card.Title>{this.props.title}</Card.Title>
+                <Card style={{ width: '18rem' }} bg='info' text="white" border="dark">
+                    <Card.Body>
+                        <Card.Title>{this.props.title}  </Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted">❤️ {this.state.count}</Card.Subtitle>
+                        <Card.Img src={this.props.img} alt='' onClick={() => {
+                            this.vote();
+                            this.props.handleModal(this.props.title, this.props.img, this.props.description);
+                        }}>
+
+                        </Card.Img>
+
                         <Card.Text>
                             {this.props.description}
                         </Card.Text>
-                        <Card.Text>
-                            ❤️ {this.state.count}
-                        </Card.Text>
+
                     </Card.Body>
                 </Card>
             </div>
@@ -50,4 +54,4 @@ export class HornedBeast extends Component {
 }
 
 
-export default HornedBeast
+export default HornedBeast;
